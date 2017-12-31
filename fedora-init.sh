@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # This shell scriptlet is provided for quick initilized the Fedora Workstation operation system.
-# Version: 0.1.2
+# Version: 0.1.3
 # Author: TripleZ <me@triplez.cn>
 
 sudo dnf update -y
@@ -16,6 +16,25 @@ sudo dnf check-update
 
 # Install basic library
 sudo dnf install -y vim git gcc-c++ cmake gdb curl wget
+
+## Git init
+echo "Your user name for Git: "
+read yourName
+git config --global user.name "$yourName"
+echo "Your e-mail for Git: "
+read yourEmail
+$ git config --global user.email $yourEmail
+$ git config --global core.editor vim
+
+echo "Need Git to store credentials? (y/n, Defualt:y)"
+read isStore
+if ["$isStore" = "N"] || ["$isStore" = "n"]
+then
+    echo "Not to store credentials..."
+else
+    mkdir ~/.git-credentials
+    git config --global credential.helper store --file=~/.git-credentials/git.credentials
+fi
 
 # Support NTFS
 sudo dnf install -y ntfs-3g fuse fuse-libs
