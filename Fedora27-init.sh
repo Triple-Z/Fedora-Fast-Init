@@ -145,7 +145,7 @@ cd typora
 ./create-package.sh x64
 
 # Install Electronic-Wechat
-## Waiting for the RPM packages
+## Waiting for the RPM packages ##
 
 # Install Tim
 
