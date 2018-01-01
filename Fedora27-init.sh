@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This shell scriptlet is provided for quick initilized the Fedora Workstation operation system.
+# This shell scriptlet is provided for quick initilized the Fedora Workstation 27 operation system.
 # Version: 0.1.3
 # Author: TripleZ <me@triplez.cn>
 
@@ -15,7 +15,7 @@ sudo dnf config-manager --add-repo=https://repo.fdzh.org/FZUG/FZUG.repo
 sudo dnf check-update
 
 # Install basic library
-sudo dnf install -y vim git gcc-c++ cmake gdb curl wget
+sudo dnf install -y vim git gcc-c++ cmake gdb curl wget -q --show-progress
 
 ## Git init
 echo "Your user name for Git: "
@@ -36,10 +36,10 @@ else
     git config --global credential.helper store --file=~/.git-credentials/git.credentials
 fi
 
-# Support NTFS
+# Support NTFS filesystem
 sudo dnf install -y ntfs-3g fuse fuse-libs
 
-# Support exFAT
+# Support exFAT filesystem
 sudo dnf install -y fuse-exfat
 
 ################### Across the GFW ##################
@@ -105,17 +105,17 @@ else
     ## Add Aliyun mirror for Chinese users
     sudo dnf config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 fi
-sudo dnf install docker-ce
-
+sudo dnf install -y docker-ce
 ## if you want to use docker-ce without sudo, check this: https://docs.docker.com/engine/installation/linux/linux-postinstall/
+## if you are in China, highly recommad to use DaoCloud / Aliyun Docker speed up services.
 
 # Install Vagrant with VirtualBox
 ## Install VirtualBox
 cd /etc/yum.repos.d/
-sudo wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
-dnf check-update
-dnf install -y binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
-dnf install VirtualBox
+sudo wget -q --show-progress http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+sudo dnf check-update
+sudo dnf install -y binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
+sudo dnf install -y VirtualBox
 ## Install Vagrant
 sudo dnf install -y vagrant
 
@@ -126,7 +126,7 @@ sudo dnf install -y vagrant
 ################# Basic Software ########################
 
 # Install Google Chrome (Stable Version)
-sudo wget https://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
+sudo wget -q --show-progress https://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
 sudo dnf check-update
 sudo dnf install -y google-chrome-stable
 
@@ -136,9 +136,13 @@ sudo dnf check-update
 sudo dnf install -y telegram-desktop
 
 # Install Mendelay Desktop
+wget -q --show-progress https://github.com/hmaarrfk/mendeley-rpm/releases/download/1.17.12/mendeleydesktop-1.17.12-1.fc27.x86_64.rpm
+sudo dnf install -y mendeleydesktop-1.17.12-1.fc27.x86_64.rpm
 
 # Install Typora
-wget https://typora.io/linux/Typora-linux-x64.tar.gz
+git clone https://github.com/RPM-Outpost/typora.git
+cd typora
+./create-package.sh x64
 
 # Install Electronic-Wechat
 
@@ -148,13 +152,17 @@ wget https://typora.io/linux/Typora-linux-x64.tar.gz
 sudo dnf install -y vlc
 
 # Install Steam
+sudo dnf config-manager --add-repo=https://negativo17.org/repos/fedora-steam.repo
+sudo dnf check-update
+sudo dnf -y install steam
 
 # Install WPS
+wget -q --show-progress http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office-10.1.0.5672-1.a21.x86_64.rpm
+sudo dnf install wps-office-10.1.0.5672-1.a21.x86_64.rpm
 
 # Install ibus-rime
 sudo dnf install -y ibus-rime
 ibus restart
-
 ## if you need futher ibus configs, enter this command:
 ## ibus-setup
 
@@ -162,7 +170,7 @@ ibus restart
 sudo dnf install -y musicbox
 
 # Install Dropbox
-wget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2015.10.28-1.fedora.x86_64.rpm
+wget -q --show-progress https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2015.10.28-1.fedora.x86_64.rpm
 sudo dnf install -y nautilus-dropbox-2015.10.28-1.fedora.x86_64.rpm
 sudo proxychains4 dropbox start -i
 dropbox start
@@ -173,15 +181,18 @@ dropbox proxy manual socks5 127.0.0.1 1080
 dropbox autostart y
 
 # Install Teamviewer
-wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+wget -q --show-progress https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 sudo dnf install -y teamviewer.x86_64.rpm
+
+# Install Xsensors
+sudo dnf install xsensors
 
 ################## GNOME Apperance ################
 
 # Install Tweak
 sudo dnf install -y gnome-tweak-tool
 
-# Install Chrome Extension Plugins
+# Install Chrome GNOME Shell
 sudo dnf install chrome-gnome-shell
 
 # if you need to inverse bottons like macOS, use this GNOME command:
@@ -193,7 +204,7 @@ sudo dnf install chrome-gnome-shell
 sudo dnf install -y zsh
 
 ## Install Oh-My-Zsh
-wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+wget -q --show-progress --no-check-certificate http://install.ohmyz.sh -O - | sh
 chsh -s /bin/zsh
 
 
@@ -202,6 +213,7 @@ echo "Need KDE Desktop?(y/n, Default:n)"
 read isKDE
 if ["$isKDE" = "Y"] || ["$isKDE" = "y"];
 then
+    # Install KDE Desktop
     echo "Installing KDE..."
     sudo dnf install -y @kde-desktop
     echo "Reboot to enjoy KDE~"
