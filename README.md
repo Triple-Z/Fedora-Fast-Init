@@ -1,25 +1,23 @@
 # Fedora Fast Init
+
 Scriptlets for quick initilized the Fedora Workstation series operation systems.
 
-<!-- vscode-markdown-toc -->
-* 1. [Fedora 27](#Fedora27)
-	* 1.1. [Catalog](#Catalog)
-* 2. [Copyright](#Copyright)
+<!-- TOC -->
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+- [Fedora Fast Init](#fedora-fast-init)
+    - [Fedora 27](#fedora-27)
+        - [Catalog](#catalog)
+    - [TODO](#todo)
+    - [Why I do this?](#why-i-do-this)
+    - [Copyright](#copyright)
 
+<!-- /TOC -->
 
-##  1. <a name='Fedora27'></a>Fedora 27
+## Fedora 27
 
 Source code: [Fedora 27](/Fedora27-init.sh)
 
-###  1.1. <a name='Catalog'></a>Catalog
-
-
+### Catalog
 
 - [x] Add RPM Fusion Repository
 - [x] Add FZUG (Mostly for Chinese users)
@@ -68,6 +66,12 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - Make choices to install softwares.
 - Use `.yaml` to config packages. (Dependent shyaml)
 
-##  2. <a name='Copyright'></a>Copyright
+## Why I do this?
+
+Fedora Workstation is a user-friendly `unix-like` operating system, and I think it will helpful to learn `Linux` systems rather than Ubuntu. So I want to write this shell scriptlet to enlarge the users who are using the Fedora.
+
+## Copyright
+
+[MIT License](/LICENSE)
 
 Copyright &copy; [TripleZ](https://github.com/Triple-Z)
