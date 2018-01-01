@@ -32,8 +32,8 @@ if ["$isStore" = "N"] || ["$isStore" = "n"]
 then
     echo "Not to store credentials..."
 else
-    mkdir ~/.git-credentials
-    git config --global credential.helper store --file=~/.git-credentials/git.credentials
+    git config --global credential.helper 'store --file ~/.git-credentials' --add
+    echo "Your git credentials will be stored in ~/.git-credentials file."
 fi
 
 # Support NTFS filesystem
