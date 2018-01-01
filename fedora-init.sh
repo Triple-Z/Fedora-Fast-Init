@@ -96,7 +96,18 @@ sudo dnf install -y zeal
 # Install Docker
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+echo "Are you want to use Aliyun mirror to speed your docker download speed if you are in China?(y/n, Default:y): "
+read isAli
+if ["$isAli" = "n"] || ["$isAli" = "N"]
+then
+    echo "Do not add Aliyun mirror for docker."
+else
+    ## Add Aliyun mirror for Chinese users
+    sudo dnf config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+fi
 sudo dnf install docker-ce
+
+## if you want to use docker-ce without sudo, check this: https://docs.docker.com/engine/installation/linux/linux-postinstall/
 
 # Install Vagrant with VirtualBox
 ## Install VirtualBox
