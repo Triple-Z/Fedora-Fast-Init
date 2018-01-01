@@ -2,14 +2,13 @@
 
 Scriptlets for quick initilized the Fedora Workstation series operation systems.
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
-- [Fedora Fast Init](#fedora-fast-init)
-    - [Fedora 27](#fedora-27)
-        - [Catalog](#catalog)
-    - [TODO](#todo)
-    - [Why I do this?](#why-i-do-this)
-    - [Copyright](#copyright)
+- [Fedora 27](#fedora-27)
+    - [Catalog](#catalog)
+- [TODO](#todo)
+- [Why I do this?](#why-i-do-this)
+- [Copyright](#copyright)
 
 <!-- /TOC -->
 
