@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # This shell scriptlet is provided for quick initilized the Fedora Workstation 27 operation system.
-# Version: 0.1.3
+# Version: 0.2
 # Author: TripleZ <me@triplez.cn>
 
 sudo dnf update -y
@@ -48,18 +48,25 @@ sudo dnf install -y fuse-exfat
 sudo pip install git+https://github.com/shadowsocks/shadowsocks.git@master
 
 ## Generate config file for shadowsocks
-mkdir ~/shadowsocks
-echo "{
-\"server\":\"your_server_ip\",
-\"server_port\":\"your_server_port\",
-\"local_address\":\"127.0.0.1\",
-\"local_port\":\"your_local_port\",
-\"password\":\"your_password\",
-\"timeout\":500,
-\"method\":\"your_encrypt_method\",
-\"fast_open\": true,
-\"workers\": 1
-}" > ~/shadowsocks/config.json
+echo "Do you need a template shadowsocks config file?(y/n, Default:y): "
+read isConfigFile
+if ["$isConfigFile" = "n"] || ["$isConfigFile" = "N"]
+then
+    echo "No need for a config file."
+    else
+    mkdir ~/shadowsocks
+    echo "{
+    \"server\":\"your_server_ip\",
+    \"server_port\":\"your_server_port\",
+    \"local_address\":\"127.0.0.1\",
+    \"local_port\":\"your_local_port\",
+    \"password\":\"your_password\",
+    \"timeout\":500,
+    \"method\":\"your_encrypt_method\",
+    \"fast_open\": true,
+    \"workers\": 1
+    }" > ~/shadowsocks/config.json
+fi
 
 ## Install libsodium
 sudo dnf install -y libsodium
@@ -207,7 +214,15 @@ sudo dnf install -y zsh
 ## Install Oh-My-Zsh
 wget -q --show-progress --no-check-certificate http://install.ohmyz.sh -O - | sh
 chsh -s /bin/zsh
+### open ~/.zshrc to do more config
 
+################## Dev Enviornment ##################
+
+# Node.js
+
+# Python 3.x
+
+# Java Development Kit
 
 ################# KDE Desktop ####################
 echo "Need KDE Desktop?(y/n, Default:n)"

@@ -19,6 +19,8 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 
 ###  1.1. <a name='Catalog'></a>Catalog
 
+
+
 - [x] Add RPM Fusion Repository
 - [x] Add FZUG (Mostly for Chinese users)
 - [x] Install basic library
@@ -56,8 +58,15 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [x] Install Chrome GNOME Shell
 - [x] Install Zsh
 - [x] Install Oh-My-Zsh
+- [ ] Node.js
+- [ ] Python 3.x
+- [ ] JDK
 - [x] (Optional) Install KDE Desktop
 
+## TODO
+
+- Make choices to install softwares.
+- Use `.yaml` to config packages. (Dependent shyaml)
 
 ##  2. <a name='Copyright'></a>Copyright
 
