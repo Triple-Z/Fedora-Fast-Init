@@ -1,7 +1,9 @@
 # Fedora Fast Init
 
 Scriptlets for quick initilized the Fedora Workstation series operation systems.
+\
 
+ggggg
 <!-- TOC depthFrom:2 -->
 
 - [Fedora 27](#fedora-27)
