@@ -94,6 +94,19 @@ sudo dnf install -y code
 sudo dnf install -y zeal
 
 # Install Docker
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce
+
+# Install Vagrant with VirtualBox
+## Install VirtualBox
+cd /etc/yum.repos.d/
+sudo wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+dnf check-update
+dnf install -y binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
+dnf install VirtualBox
+## Install Vagrant
+sudo dnf install -y vagrant
 
 # Install CLion
 
