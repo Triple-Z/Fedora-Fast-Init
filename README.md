@@ -5,8 +5,9 @@ Scriptlets for quick initilized the Fedora Workstation series operation systems.
 <!-- TOC depthFrom:2 -->
 
 - [Fedora 27](#fedora-27)
-    - [Catalog](#catalog)
+	- [Catalog](#catalog)
 - [TODO](#todo)
+- [How to use?](#how-to-use)
 - [Why I do this?](#why-i-do-this)
 - [Copyright](#copyright)
 
@@ -64,6 +65,14 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 
 - Make choices to install softwares.
 - Use `.yaml` to config packages. (Dependent shyaml)
+
+## How to use?
+
+```bash
+$ git clone https://github.com/Triple-Z/Fedora-Fast-Init.git
+$ cd Fedora-Fast-Init/
+$ ./Fedora27-init.sh
+```
 
 ## Why I do this?
 

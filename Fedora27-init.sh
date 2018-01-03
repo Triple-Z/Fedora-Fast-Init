@@ -1,10 +1,15 @@
 #!/bin/sh
 
 # This shell scriptlet is provided for quick initilized the Fedora Workstation 27 operation system.
-# Version: 0.2
+# Version: 0.2.1
 # Author: TripleZ <me@triplez.cn>
 
 sudo dnf update -y
+
+# Config DNS
+sudo sed -i '$i nameserver 8.8.8.8' /etc/resolv.conf
+sudo sed -i '$i nameserver 9.9.9.9' /etc/resolv.conf
+sudo systemctl restart NetworkManager
 
 # Add RPM Fusion Repository
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -15,20 +20,20 @@ sudo dnf config-manager --add-repo=https://repo.fdzh.org/FZUG/FZUG.repo
 sudo dnf check-update
 
 # Install basic library
-sudo dnf install -y vim git gcc-c++ cmake gdb curl wget -q --show-progress
+sudo dnf install -y vim git gcc-c++ cmake gdb curl wget
 
 ## Git init
 echo "Your user name for Git: "
 read yourName
-git config --global user.name "$yourName"
+git config --global user.name \"$yourName\"
 echo "Your e-mail for Git: "
 read yourEmail
-$ git config --global user.email $yourEmail
-$ git config --global core.editor vim
+git config --global user.email $yourEmail
+git config --global core.editor vim
 
 echo "Need Git to store credentials? (y/n, Defualt:y)"
 read isStore
-if ["$isStore" = "N"] || ["$isStore" = "n"]
+if [$isStore = "N" -o $isStore = "n"];
 then
     echo "Not to store credentials..."
 else
@@ -50,10 +55,10 @@ sudo pip install git+https://github.com/shadowsocks/shadowsocks.git@master
 ## Generate config file for shadowsocks
 echo "Do you need a template shadowsocks config file?(y/n, Default:y): "
 read isConfigFile
-if ["$isConfigFile" = "n"] || ["$isConfigFile" = "N"]
+if [$isConfigFile = "n" -o $isConfigFile = "N"];
 then
     echo "No need for a config file."
-    else
+else
     mkdir ~/shadowsocks
     echo "{
     \"server\":\"your_server_ip\",
@@ -105,7 +110,7 @@ sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 echo "Are you want to use Aliyun mirror to speed your docker download speed if you are in China?(y/n, Default:y): "
 read isAli
-if ["$isAli" = "n"] || ["$isAli" = "N"]
+if [$isAli = "n" -o $isAli = "N"];
 then
     echo "Do not add Aliyun mirror for docker."
 else
@@ -193,7 +198,7 @@ wget -q --show-progress https://download.teamviewer.com/download/linux/teamviewe
 sudo dnf install -y teamviewer.x86_64.rpm
 
 # Install Xsensors
-sudo dnf install xsensors
+sudo dnf install -y xsensors
 
 ################## GNOME Apperance ################
 
@@ -201,7 +206,7 @@ sudo dnf install xsensors
 sudo dnf install -y gnome-tweak-tool
 
 # Install Chrome GNOME Shell
-sudo dnf install chrome-gnome-shell
+sudo dnf install -y chrome-gnome-shell
 
 # if you need to inverse bottons like macOS, use this GNOME command:
 # gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
@@ -227,7 +232,7 @@ chsh -s /bin/zsh
 ################# KDE Desktop ####################
 echo "Need KDE Desktop?(y/n, Default:n)"
 read isKDE
-if ["$isKDE" = "Y"] || ["$isKDE" = "y"];
+if [$isKDE = "Y" -o $isKDE = "y"];
 then
     # Install KDE Desktop
     echo "Installing KDE..."
