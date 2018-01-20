@@ -223,7 +223,9 @@ chsh -s /bin/zsh
 
 ################## Dev Enviornment ##################
 
-# Node.js
+# Node.js 8.x LTS
+curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+sudo yum -y install nodejs
 
 # Python 3.x
 

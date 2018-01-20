@@ -5,7 +5,7 @@ Scriptlets for quick initilized the Fedora Workstation series operation systems.
 <!-- TOC depthFrom:2 -->
 
 - [Fedora 27](#fedora-27)
-	- [Catalog](#catalog)
+    - [Catalog](#catalog)
 - [TODO](#todo)
 - [How to use?](#how-to-use)
 - [Why I do this?](#why-i-do-this)
@@ -60,6 +60,7 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [ ] Python 3.x
 - [ ] JDK
 - [x] (Optional) Install KDE Desktop
+- [ ] BumbleBee
 
 ## TODO
 
