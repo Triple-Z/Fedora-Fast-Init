@@ -236,9 +236,22 @@ sudo yum -y install nodejs
 ## NRM (Node registry manager)
 echo -n "Need NRM(Node registry manager)? (y/n, Default:y)"
 read isNRM
-if [ $isNRM = "y" -o $isNRM = "y" ];
+if [ $isNRM = "n" -o $isNRM = "N" ];
 then
+	echo "No need NRM"
+else
     sudo npm install -g nrm --registry=http://registry.npm.taobao.org
+fi
+
+## Yarn
+echo -n "Need Yarn? (y/n, Default:y)
+read isYarn
+if [ $isYarn = "n" -o $isYarn = "N" ];
+then
+	echo "No need Yarn"
+else
+    sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+	sudo dnf install -y yarn
 fi
 
 # Python 3.x
