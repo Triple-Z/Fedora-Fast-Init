@@ -200,6 +200,12 @@ sudo dnf install -y teamviewer.x86_64.rpm
 # Install Xsensors
 sudo dnf install -y xsensors
 
+# Install ImageMagick
+sudo dnf install -y ImageMagick
+
+# Install libicns-utils
+sudo dnf install -y libicns-utils
+
 ################## GNOME Apperance ################
 
 # Install Tweak
