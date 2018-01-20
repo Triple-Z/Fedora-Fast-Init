@@ -33,7 +33,7 @@ git config --global core.editor vim
 
 echo "Need Git to store credentials? (y/n, Defualt:y)"
 read isStore
-if [$isStore = "N" -o $isStore = "n"];
+if [ $isStore = "N" -o $isStore = "n" ];
 then
     echo "Not to store credentials..."
 else
@@ -55,7 +55,7 @@ sudo pip install git+https://github.com/shadowsocks/shadowsocks.git@master
 ## Generate config file for shadowsocks
 echo "Do you need a template shadowsocks config file?(y/n, Default:y): "
 read isConfigFile
-if [$isConfigFile = "n" -o $isConfigFile = "N"];
+if [ $isConfigFile = "n" -o $isConfigFile = "N" ];
 then
     echo "No need for a config file."
 else
@@ -110,7 +110,7 @@ sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 echo "Are you want to use Aliyun mirror to speed your docker download speed if you are in China?(y/n, Default:y): "
 read isAli
-if [$isAli = "n" -o $isAli = "N"];
+if [ $isAli = "n" -o $isAli = "N" ];
 then
     echo "Do not add Aliyun mirror for docker."
 else
@@ -227,6 +227,14 @@ chsh -s /bin/zsh
 curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 sudo yum -y install nodejs
 
+## NRM (Node registry manager)
+echo -n "Need NRM(Node registry manager)? (y/n, Default:y)"
+read isNRM
+if [ $isNRM = "y" -o $isNRM = "y" ];
+then
+    sudo npm install -g nrm --registry=http://registry.npm.taobao.org
+fi
+
 # Python 3.x
 
 # Java Development Kit
@@ -234,7 +242,7 @@ sudo yum -y install nodejs
 ################# KDE Desktop ####################
 echo "Need KDE Desktop?(y/n, Default:n)"
 read isKDE
-if [$isKDE = "Y" -o $isKDE = "y"];
+if [ $isKDE = "Y" -o $isKDE = "y" ];
 then
     # Install KDE Desktop
     echo "Installing KDE..."

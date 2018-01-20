@@ -57,6 +57,7 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [x] Install Zsh
 - [x] Install Oh-My-Zsh
 - [ ] Node.js
+- [ ] NRM
 - [ ] Python 3.x
 - [ ] JDK
 - [x] (Optional) Install KDE Desktop
