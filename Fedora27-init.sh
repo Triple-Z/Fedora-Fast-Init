@@ -47,6 +47,9 @@ sudo dnf install -y ntfs-3g fuse fuse-libs
 # Support exFAT filesystem
 sudo dnf install -y fuse-exfat
 
+# BumbleBee for NVIDIA Optimus
+
+
 ################### Across the GFW ##################
 
 # Install shadowsocks (Mostly for Chinese users)
@@ -244,7 +247,7 @@ else
 fi
 
 ## Yarn
-echo -n "Need Yarn? (y/n, Default:y)
+echo -n "Need Yarn? (y/n, Default:y)"
 read isYarn
 if [ $isYarn = "n" -o $isYarn = "N" ];
 then
