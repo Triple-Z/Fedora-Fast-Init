@@ -33,7 +33,7 @@ git config --global core.editor vim
 
 echo "Need Git to store credentials? (y/n, Defualt:y)"
 read isStore
-if [$isStore = "N" -o $isStore = "n"];
+if [ $isStore = "N" -o $isStore = "n" ];
 then
     echo "Not to store credentials..."
 else
@@ -47,6 +47,9 @@ sudo dnf install -y ntfs-3g fuse fuse-libs
 # Support exFAT filesystem
 sudo dnf install -y fuse-exfat
 
+# BumbleBee for NVIDIA Optimus
+
+
 ################### Across the GFW ##################
 
 # Install shadowsocks (Mostly for Chinese users)
@@ -55,7 +58,7 @@ sudo pip install git+https://github.com/shadowsocks/shadowsocks.git@master
 ## Generate config file for shadowsocks
 echo "Do you need a template shadowsocks config file?(y/n, Default:y): "
 read isConfigFile
-if [$isConfigFile = "n" -o $isConfigFile = "N"];
+if [ $isConfigFile = "n" -o $isConfigFile = "N" ];
 then
     echo "No need for a config file."
 else
@@ -117,7 +120,7 @@ sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 echo "Are you want to use Aliyun mirror to speed your docker download speed if you are in China?(y/n, Default:y): "
 read isAli
-if [$isAli = "n" -o $isAli = "N"];
+if [ $isAli = "n" -o $isAli = "N" ];
 then
     echo "Do not add Aliyun mirror for docker."
 else
@@ -207,6 +210,12 @@ sudo dnf install -y teamviewer.x86_64.rpm
 # Install Xsensors
 sudo dnf install -y xsensors
 
+# Install ImageMagick
+sudo dnf install -y ImageMagick
+
+# Install libicns-utils
+sudo dnf install -y libicns-utils
+
 ################## GNOME Apperance ################
 
 # Install Tweak
@@ -230,7 +239,30 @@ chsh -s /bin/zsh
 
 ################## Dev Enviornment ##################
 
-# Node.js
+# Node.js 8.x LTS
+curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+sudo yum -y install nodejs
+
+## NRM (Node registry manager)
+echo -n "Need NRM(Node registry manager)? (y/n, Default:y)"
+read isNRM
+if [ $isNRM = "n" -o $isNRM = "N" ];
+then
+	echo "No need NRM"
+else
+    sudo npm install -g nrm --registry=http://registry.npm.taobao.org
+fi
+
+## Yarn
+echo -n "Need Yarn? (y/n, Default:y)"
+read isYarn
+if [ $isYarn = "n" -o $isYarn = "N" ];
+then
+	echo "No need Yarn"
+else
+    sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+	sudo dnf install -y yarn
+fi
 
 # Python 3.x
 
@@ -239,7 +271,7 @@ chsh -s /bin/zsh
 ################# KDE Desktop ####################
 echo "Need KDE Desktop?(y/n, Default:n)"
 read isKDE
-if [$isKDE = "Y" -o $isKDE = "y"];
+if [ $isKDE = "Y" -o $isKDE = "y" ];
 then
     # Install KDE Desktop
     echo "Installing KDE..."

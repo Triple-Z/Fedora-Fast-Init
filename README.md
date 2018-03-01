@@ -5,7 +5,7 @@ Scriptlets for quick initilized the Fedora Workstation series operation systems.
 <!-- TOC depthFrom:2 -->
 
 - [Fedora 27](#fedora-27)
-	- [Catalog](#catalog)
+    - [Catalog](#catalog)
 - [TODO](#todo)
 - [How to use?](#how-to-use)
 - [Why I do this?](#why-i-do-this)
@@ -25,6 +25,7 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [x] Git init
 - [x] Support NTFS filesystem
 - [x] Support exFAT filesystem
+- [ ] BumbleBee
 - [x] Install shadowsocks (Mostly for Chinese users)
 - [x] Generate config file for shadowsocks
 - [x] Install libsodium
@@ -56,7 +57,8 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [x] Install Chrome GNOME Shell
 - [x] Install Zsh
 - [x] Install Oh-My-Zsh
-- [ ] Node.js
+- [x] Node.js
+- [x] NRM
 - [ ] Python 3.x
 - [ ] JDK
 - [x] (Optional) Install KDE Desktop
