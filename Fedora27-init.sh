@@ -73,6 +73,13 @@ else
     }" > ~/shadowsocks/config.json
 fi
 
+## Install shadowsocks-qt5
+
+
+sudo dnf copr enable librehat/shadowsocks
+sudo dnf update
+sudo dnf install shadowsocks-qt5
+
 ## Install libsodium
 sudo dnf install -y libsodium
 
