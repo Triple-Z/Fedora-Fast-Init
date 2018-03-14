@@ -22,6 +22,7 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [x] Add RPM Fusion Repository
 - [x] Add FZUG (Mostly for Chinese users)
 - [x] Install basic library
+- [ ] Install linux user utilis
 - [x] Git init
 - [x] Support NTFS filesystem
 - [x] Support exFAT filesystem
