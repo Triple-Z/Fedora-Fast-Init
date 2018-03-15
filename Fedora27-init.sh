@@ -10,6 +10,7 @@ sudo dnf update -y
 sudo sed -i '$i nameserver 8.8.8.8' /etc/resolv.conf
 sudo sed -i '$i nameserver 9.9.9.9' /etc/resolv.conf
 sudo systemctl restart NetworkManager
+sleep 60
 
 # Add RPM Fusion Repository
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -21,6 +22,9 @@ sudo dnf check-update
 
 # Install basic library
 sudo dnf install -y vim git gcc-c++ cmake gdb curl wget
+
+# Install linux user utils
+sudo dnf install -y util-linux-user
 
 ## Git init
 echo "Your user name for Git: "
@@ -168,6 +172,7 @@ cd typora
 
 # Install Electronic-Wechat
 ## Waiting for the RPM packages ##
+# https://drive.google.com/open?id=1cMy04RiOL1Diba1NVclpYaQnbM17l04C
 
 # Install Tim
 
