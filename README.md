@@ -27,8 +27,10 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [x] Support NTFS filesystem
 - [x] Support exFAT filesystem
 - [ ] BumbleBee
+- [x] NetworkManager plugins 
 - [x] Install shadowsocks (Mostly for Chinese users)
 - [x] Generate config file for shadowsocks
+- [x] Install shadowsocks-qt5
 - [x] Install libsodium
 - [x] Install proxychains (Mostly for Chinese users)
 - [x] Modify config file for proxychains

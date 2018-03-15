@@ -84,8 +84,6 @@ else
 fi
 
 ## Install shadowsocks-qt5
-
-
 sudo dnf copr enable librehat/shadowsocks
 sudo dnf update
 sudo dnf install shadowsocks-qt5
