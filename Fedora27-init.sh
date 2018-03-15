@@ -26,6 +26,9 @@ sudo dnf install -y vim git gcc-c++ cmake gdb curl wget
 # Install linux user utils
 sudo dnf install -y util-linux-user
 
+# Install NetworkManager plugins
+sudo dnf install NetworkManager-*
+
 ## Git init
 echo "Your user name for Git: "
 read yourName
@@ -81,8 +84,6 @@ else
 fi
 
 ## Install shadowsocks-qt5
-
-
 sudo dnf copr enable librehat/shadowsocks
 sudo dnf update
 sudo dnf install shadowsocks-qt5
