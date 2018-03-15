@@ -159,6 +159,8 @@ sudo dnf install obs-studio
 # Install Calibre
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | sudo python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
 
+# Install uget
+sudo dnf install uget
 
 # Install Google Chrome (Stable Version)
 sudo wget -q --show-progress https://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
