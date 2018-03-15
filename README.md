@@ -42,6 +42,7 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [x] Install Vagrant with VirtualBox
 - [ ] Install CLion
 - [ ] Install PyCharm
+- [x] Install OBS
 - [x] Install Google Chrome (Stable Version)
 - [x] Install Telegram Desktop
 - [x] Install Mendelay Desktop

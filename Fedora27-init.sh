@@ -152,6 +152,10 @@ sudo dnf install -y vagrant
 
 ################# Basic Software ########################
 
+# Install OBS
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install obs-studio
+
 # Install Google Chrome (Stable Version)
 sudo wget -q --show-progress https://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
 sudo dnf check-update
