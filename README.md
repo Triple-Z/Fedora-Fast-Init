@@ -44,6 +44,7 @@ Source code: [Fedora 27](/Fedora27-init.sh)
 - [ ] Install PyCharm
 - [x] Install OBS
 - [x] Install Calibre
+- [x] Install uget
 - [x] Install Google Chrome (Stable Version)
 - [x] Install Telegram Desktop
 - [x] Install Mendelay Desktop
