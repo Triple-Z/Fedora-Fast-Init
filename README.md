@@ -13,6 +13,10 @@ Scriptlets for quick initilized the Fedora Workstation series operation systems.
 
 <!-- /TOC -->
 
+## This repo has been OBSOLETED!
+
+Please move to the new repo [NUAA-FUG/FCS](https://github.com/NUAA-FUG/FCS)
+
 ## Fedora 27
 
 Source code: [Fedora 27](/Fedora27-init.sh)
